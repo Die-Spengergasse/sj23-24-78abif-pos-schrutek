@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Spg.TypesDemo.DoaminModel.Model
 {
-    internal class Cart
+    public class Cart
     {
+        public int Id { get; set; }
+        public List<CartItem> CartItems { get; set; } = new();
     }
 }
