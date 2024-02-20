@@ -83,3 +83,6 @@ foreach (ClassRoom classRoom in classRooms2)
 }
 Console.WriteLine("----------------------");
 Console.WriteLine($"{secondClassroom.Number}");
+
+Student student = new Student();
+student.GetStudent(new StudentId(1), new ClassRoomId(12));

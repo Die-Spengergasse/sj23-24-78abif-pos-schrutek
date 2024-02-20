@@ -1,0 +1,95 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D832CDE9-5B27-4C48-8358-C730BE8F3491}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spg.CifBazar.MvcFrontEnd", "src\Spg.CifBazar.MvcFrontEnd\Spg.CifBazar.MvcFrontEnd.csproj", "{9F8220AB-8CFE-4CFB-ABEE-2DC05A5635FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spg.CifBazar.Application", "src\Spg.CifBazar.Application\Spg.CifBazar.Application.csproj", "{7C5BDE81-7DA1-48C8-9239-A83A713FA32B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spg.CifBazar.Infrastructure", "src\Spg.CifBazar.Infrastructure\Spg.CifBazar.Infrastructure.csproj", "{438043FA-82BE-41F2-BE35-A1F415DF2CFE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spg.CifBazar.DomainModel", "src\Spg.CifBazar.DomainModel\Spg.CifBazar.DomainModel.csproj", "{8DC28396-ABCD-4ECE-9666-2ED906C6CD90}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spg.CifBazar.Repository", "src\Spg.CifBazar.Repository\Spg.CifBazar.Repository.csproj", "{701867BE-BC8E-4D0A-B458-D16C053E9A97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{269F882C-DCE0-4066-8BF8-D67E5161C579}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spg.CifBazar.MvcFrontEnd.Test", "test\Spg.CifBazar.MvcFrontEnd.Test\Spg.CifBazar.MvcFrontEnd.Test.csproj", "{04337003-B4DD-42D2-8C5D-D8A058081813}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spg.CifBazar.Application.Test", "test\Spg.CifBazar.Application.Test\Spg.CifBazar.Application.Test.csproj", "{AB70C1E1-076A-44A7-87E7-55C7F92078D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spg.CifBazar.DomainModel.Test", "test\Spg.CifBazar.DomainModel.Test\Spg.CifBazar.DomainModel.Test.csproj", "{17BBCB46-BD20-48C9-B0BD-1556ED5EDE42}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spg.CifBazar.Repository.Test", "test\Spg.CifBazar.Repository.Test\Spg.CifBazar.Repository.Test.csproj", "{DBDFF2AF-9CFC-4B4D-9DB5-C5E546621B0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spg.CifBazar.Api", "src\Spg.CifBazar.Api\Spg.CifBazar.Api.csproj", "{B60FDBDD-F488-43BA-BADF-FCAD828A185D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F8220AB-8CFE-4CFB-ABEE-2DC05A5635FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F8220AB-8CFE-4CFB-ABEE-2DC05A5635FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F8220AB-8CFE-4CFB-ABEE-2DC05A5635FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F8220AB-8CFE-4CFB-ABEE-2DC05A5635FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C5BDE81-7DA1-48C8-9239-A83A713FA32B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C5BDE81-7DA1-48C8-9239-A83A713FA32B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C5BDE81-7DA1-48C8-9239-A83A713FA32B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C5BDE81-7DA1-48C8-9239-A83A713FA32B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{438043FA-82BE-41F2-BE35-A1F415DF2CFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{438043FA-82BE-41F2-BE35-A1F415DF2CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{438043FA-82BE-41F2-BE35-A1F415DF2CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{438043FA-82BE-41F2-BE35-A1F415DF2CFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC28396-ABCD-4ECE-9666-2ED906C6CD90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC28396-ABCD-4ECE-9666-2ED906C6CD90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC28396-ABCD-4ECE-9666-2ED906C6CD90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC28396-ABCD-4ECE-9666-2ED906C6CD90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{701867BE-BC8E-4D0A-B458-D16C053E9A97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{701867BE-BC8E-4D0A-B458-D16C053E9A97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{701867BE-BC8E-4D0A-B458-D16C053E9A97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{701867BE-BC8E-4D0A-B458-D16C053E9A97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04337003-B4DD-42D2-8C5D-D8A058081813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04337003-B4DD-42D2-8C5D-D8A058081813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04337003-B4DD-42D2-8C5D-D8A058081813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04337003-B4DD-42D2-8C5D-D8A058081813}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB70C1E1-076A-44A7-87E7-55C7F92078D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB70C1E1-076A-44A7-87E7-55C7F92078D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB70C1E1-076A-44A7-87E7-55C7F92078D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB70C1E1-076A-44A7-87E7-55C7F92078D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17BBCB46-BD20-48C9-B0BD-1556ED5EDE42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17BBCB46-BD20-48C9-B0BD-1556ED5EDE42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17BBCB46-BD20-48C9-B0BD-1556ED5EDE42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17BBCB46-BD20-48C9-B0BD-1556ED5EDE42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBDFF2AF-9CFC-4B4D-9DB5-C5E546621B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBDFF2AF-9CFC-4B4D-9DB5-C5E546621B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBDFF2AF-9CFC-4B4D-9DB5-C5E546621B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBDFF2AF-9CFC-4B4D-9DB5-C5E546621B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B60FDBDD-F488-43BA-BADF-FCAD828A185D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B60FDBDD-F488-43BA-BADF-FCAD828A185D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B60FDBDD-F488-43BA-BADF-FCAD828A185D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B60FDBDD-F488-43BA-BADF-FCAD828A185D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9F8220AB-8CFE-4CFB-ABEE-2DC05A5635FF} = {D832CDE9-5B27-4C48-8358-C730BE8F3491}
+		{7C5BDE81-7DA1-48C8-9239-A83A713FA32B} = {D832CDE9-5B27-4C48-8358-C730BE8F3491}
+		{438043FA-82BE-41F2-BE35-A1F415DF2CFE} = {D832CDE9-5B27-4C48-8358-C730BE8F3491}
+		{8DC28396-ABCD-4ECE-9666-2ED906C6CD90} = {D832CDE9-5B27-4C48-8358-C730BE8F3491}
+		{701867BE-BC8E-4D0A-B458-D16C053E9A97} = {D832CDE9-5B27-4C48-8358-C730BE8F3491}
+		{04337003-B4DD-42D2-8C5D-D8A058081813} = {269F882C-DCE0-4066-8BF8-D67E5161C579}
+		{AB70C1E1-076A-44A7-87E7-55C7F92078D6} = {269F882C-DCE0-4066-8BF8-D67E5161C579}
+		{17BBCB46-BD20-48C9-B0BD-1556ED5EDE42} = {269F882C-DCE0-4066-8BF8-D67E5161C579}
+		{DBDFF2AF-9CFC-4B4D-9DB5-C5E546621B0E} = {269F882C-DCE0-4066-8BF8-D67E5161C579}
+		{B60FDBDD-F488-43BA-BADF-FCAD828A185D} = {D832CDE9-5B27-4C48-8358-C730BE8F3491}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF8B0A4D-BB1C-4602-B194-BB599729F232}
+	EndGlobalSection
+EndGlobal

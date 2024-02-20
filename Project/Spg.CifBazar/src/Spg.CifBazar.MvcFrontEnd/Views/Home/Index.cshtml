@@ -1,0 +1,22 @@
+﻿@using Spg.CifBazar.DomainModel.Model
+@model List<Shop>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table class="table table-striped">
+    @foreach(Shop item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.CompanySuffix</td>
+            <td>@item.PhoneNumber?.Number</td>
+        </tr>
+    }
+</table>
