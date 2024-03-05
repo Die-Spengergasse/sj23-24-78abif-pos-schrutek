@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Spg.CifBazar.Application.Services;
 using Spg.CifBazar.DomainModel.Dtos;
+using Spg.CifBazar.DomainModel.Exceptions;
 using Spg.CifBazar.DomainModel.Interfaces;
 using Spg.CifBazar.DomainModel.Model;
 
@@ -48,20 +49,43 @@ namespace Spg.CifBazar.Api.Controllers
 
         // GET https://localhost:1234/api/Shops
         [HttpGet()]
-        public IActionResult GetAll(FilteredShopsQuery query)
+        public IActionResult GetAll()
         {
             // Service impl. +  verwenden
             return Ok(_readOnlyShopService.GetAll());
         }
 
+        // GET https://localhost:1234/api/Shops/filtered?datefilter
+        [HttpGet("filtered")]
+        public IActionResult GetFilteredByName([FromHeader()]string nameFilter, [FromQuery()] DateTime dateFilter)
+        {
+            // Service impl. +  verwenden
+            return Ok(_readOnlyShopService.GetAll());
+        }
+
+        // GET https://localhost:1234/api/Shops/4711
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            // Service impl. +  verwenden
+            return Ok(_readOnlyShopService.GetSingle(id));
+        }
+
         [HttpPost()]
         public IActionResult Create(CreateShopCommand newShop)
         {
-            return Created("", _writableShopService.Create(newShop));
+            try
+            {
+                return Created("", _writableShopService.Create(newShop));
+            }
+            catch (ShopServiceWriteException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE https://localhost:1234/api/Shops/4711
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         public IActionResult DeleteAll(int id)
         {
             // Service impl. +  verwenden

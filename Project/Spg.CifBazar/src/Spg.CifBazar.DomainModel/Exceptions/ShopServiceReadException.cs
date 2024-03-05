@@ -9,6 +9,7 @@ namespace Spg.CifBazar.DomainModel.Exceptions
     public class ShopServiceReadException : Exception
     {
         public ShopServiceReadException()
+            : base()
         { }
 
         public ShopServiceReadException(string? message)

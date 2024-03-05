@@ -15,6 +15,7 @@ namespace Spg.CifBazar.Infrastructure
 
         // 2. Mapping konfigurieren
         public DbSet<Shop> Shops => Set<Shop>();
+        public DbSet<Category> Categories => Set<Category>();
         //public DbSet<Shop> Shops
         //{
         //    get 

@@ -7,10 +7,10 @@ using System.Linq;
 
 namespace Spg.CifBazar.Application.Services
 {
-    public class ShopService : IReadOnlyShopService
+    public class ShopService : IReadOnlyShopService, IWritableShopService
     {
-        private readonly IReadOnlyShopRepository _readOnlyshopRepository;
-        private readonly IWritableShopRepository _writableshopRepository;
+        private readonly IReadOnlyShopRepository _readOnlyShopRepository;
+        private readonly IWritableShopRepository _writableShopRepository;
         private readonly ILogger<Shop> _logger;
 
         public ShopService(
@@ -18,21 +18,36 @@ namespace Spg.CifBazar.Application.Services
             IWritableShopRepository writableshopRepository, 
             ILogger<Shop> logger)
         {
-            _readOnlyshopRepository = readOnlyShopRepository;
-            _writableshopRepository = writableshopRepository;
+            _readOnlyShopRepository = readOnlyShopRepository;
+            _writableShopRepository = writableshopRepository;
             _logger = logger;
         }
 
         public IQueryable<ShopDto> GetAll()
         {
-            return _readOnlyshopRepository.GetAll();
+            // Langsam und dämlich
+            //IQueryable<Shop> data = _readOnlyShopRepository.GetAll();
+            //List<ShopDto> result = new List<ShopDto>();
+            //foreach (Shop shop in data)
+            //{
+            //    result.Add(new ShopDto(shop.Name, shop.CompanySuffix));
+            //}
+            //return result.AsQueryable();
+
+            // Deutlich besser mit LinQ
+            return _readOnlyShopRepository
+                .GetAll()
+                .Select(s => new ShopDto(s.Name, s.CompanySuffix));
         }
 
         public ShopDto GetSingle(int id)
         {
             try
             {
-                return _readOnlyshopRepository.GetSingle(id);
+                // Klassische variante
+                Shop data = _readOnlyShopRepository.GetSingle(id);
+                return new ShopDto(data.Name, data.CompanySuffix);
+                // Besser mit z.B. Automapper
             }
             catch (ShopRepositoryReadException ex)
             {
@@ -40,7 +55,7 @@ namespace Spg.CifBazar.Application.Services
             }
         }
 
-        public Shop Create(Shop newShop)
+        public ShopDto Create(CreateShopCommand newShop)
         {
             _logger.LogInformation("Service - Create Shop (Initialisation)");
 
@@ -51,15 +66,16 @@ namespace Spg.CifBazar.Application.Services
             _logger.LogInformation("Validation OK, Create new Shop Entity");
 
             _logger.LogInformation("Service - Call Respository and persist to Database");
+
             try
             {
                 _logger.LogInformation("Everything OK");
-                return _writableshopRepository.Create(newShop);
+                throw new NotImplementedException();
             }
             catch (ShopRepositoryReadException ex) 
             {
                 _logger.LogError($"{ex.Message} | {ex.StackTrace}");
-                throw; // throw ShopServiceWriteException.FromCreate("...");
+                throw ShopServiceWriteException.FromCreate(ex);
             }
         }
 

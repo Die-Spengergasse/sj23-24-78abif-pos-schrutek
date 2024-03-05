@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Spg.CifBazar.Application;
 using Spg.CifBazar.Application.Services;
 using Spg.CifBazar.DomainModel.Interfaces;
 using Spg.CifBazar.Infrastructure;
@@ -19,7 +20,15 @@ builder.Services.AddDbContext<CifBazarContext>(options => options.UseSqlite(conn
 
 // Add Services
 builder.Services.AddTransient<IReadOnlyShopService, ShopService>();
+builder.Services.AddTransient<IWritableShopService, ShopService>();
+builder.Services.AddTransient<IReadOnlyProductService, ProductService>();
+builder.Services.AddTransient<IWritableProductService, ProductService>();
+
 builder.Services.AddTransient<IReadOnlyShopRepository, ShopRepository>();
+builder.Services.AddTransient<IWritableShopRepository, ShopRepository>();
+builder.Services.AddTransient<IReadOnlyProductRepository, ProductRepository>();
+builder.Services.AddTransient<IWritableProductRepository, ProductRepository>();
+builder.Services.AddTransient<IReadOnlyCategoryRepository, CategoryRepository>();
 
 var app = builder.Build();
 

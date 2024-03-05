@@ -1,4 +1,5 @@
-﻿using Spg.CifBazar.DomainModel.Model;
+﻿using Spg.CifBazar.DomainModel.Interfaces;
+using Spg.CifBazar.DomainModel.Model;
 using Spg.CifBazar.Repository;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Spg.CifBazar.Application
 {
-    public class ProductService
+    public class ProductService_Demo
     {
         public void UpdatePeroduct()
         {

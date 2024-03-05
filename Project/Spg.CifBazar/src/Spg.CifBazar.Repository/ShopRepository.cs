@@ -11,11 +11,12 @@ using System.Threading.Tasks;
 
 namespace Spg.CifBazar.Repository
 {
-    public class ShopRepository : IReadOnlyShopRepository
+    public class ShopRepository : RepositoryBase<Shop>, IReadOnlyShopRepository, IWritableShopRepository
     {
         private readonly CifBazarContext _context;
 
         public ShopRepository(CifBazarContext context)
+            : base(context)
         {
             _context = context;
         }
@@ -35,21 +36,9 @@ namespace Spg.CifBazar.Repository
             return _context.Shops;
         }
 
-        public void Create(Shop newShop)
+        public void Delete(int id)
         {
-            _context.Add(newShop);
-            try
-            {
-                _context.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                throw ShopRepositoryWriteException.FromCreate(ex);
-            }
-            catch (DbUpdateException ex)
-            {
-                throw ShopRepositoryWriteException.FromCreate(ex);
-            }
+            throw new NotImplementedException();
         }
     }
 }

@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 
 namespace Spg.CifBazar.DomainModel.Dtos
 {
-    public class CreateShopCommand
-    {
-        public string? Name { get; set; } = string.Empty; // IsRequred
-        public string? CompanySuffix { get; set; } // darf NULL sein
-
-        public Address Address { get; set; } = default!;
-        public PhoneNumber PhoneNumber { get; set; } = default!;
-        public EMail EMail { get; set; } = default!;
-    }
+    public record CreateShopCommand(
+        string? Name, string?
+        CompanySuffix,
+        AddressDto Address,
+        PhoneNumberDto PhoneNumber,
+        EMailDto EMail);
 }

@@ -37,7 +37,7 @@ namespace Spg.CifBazar.DomainModel.Model
         }
 
         public int Id { get; private set; } // PK, auto increment, kommt von DB
-        public string? Name { get; set; } = string.Empty; // IsRequred
+        public string Name { get; set; } = string.Empty; // IsRequred
         public string? CompanySuffix { get; set; } // darf NULL sein
 
         public Address Address { get; set; } = default!;

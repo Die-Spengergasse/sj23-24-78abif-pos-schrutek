@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Spg.CifBazar.DomainModel.Interfaces
 {
-    public interface IProductRerpository
+    public interface IReadOnlyProductRepository
     {
         IProductRepositoryFilterBuilder FilterBuilder { get; set; }
-
-        IProductUpdateBuilder UpdateBuilder(Product productToChange);
     }
 }

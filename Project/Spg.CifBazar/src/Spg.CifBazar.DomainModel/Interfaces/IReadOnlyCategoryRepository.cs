@@ -5,7 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spg.CifBazar.DomainModel.Dtos
+namespace Spg.CifBazar.DomainModel.Interfaces
 {
-    public record ShopDto(string Name, string? CompanySuffix);
+    public interface IReadOnlyCategoryRepository
+    {
+        Category? GetCategoryById(int id);
+    }
 }
