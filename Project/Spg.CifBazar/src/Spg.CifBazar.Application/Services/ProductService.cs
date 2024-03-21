@@ -17,18 +17,26 @@ namespace Spg.CifBazar.Application.Services
         private readonly IReadOnlyCategoryRepository _readOnlyCategoryRepository;
         private readonly IReadOnlyProductRepository _readOnlyProductRepository;
         private readonly IWritableProductRepository _writableProductRepository;
+        private readonly IDateTimeService _dateTimeService;
+        private readonly IProductNumberService _productNumberService;
 
         public ProductService(
             IReadOnlyCategoryRepository categoryRepository,
             IReadOnlyProductRepository productRepository,
-            IWritableProductRepository writableProductRepository)
+            IWritableProductRepository writableProductRepository,
+            IDateTimeService dateTimeService,
+            IProductNumberService productNumberService)
         {
             _readOnlyCategoryRepository = categoryRepository;
             _readOnlyProductRepository = productRepository;
             _writableProductRepository = writableProductRepository;
+            _dateTimeService = dateTimeService;
+            _productNumberService = productNumberService;
         }
 
-        public void Create(CreateProductCommand productCommand)
+        // TODO: Read-Methode (benutzt Product-Repository)
+
+        public ProductDto Create(CreateProductCommand productCommand)
         {
             //////////// Init (Produkt muss in eine bestimmte Kategorie)
             //////////Category? category = _readOnlyCategoryRepository.GetCategoryById(product.CategroyId)
@@ -57,7 +65,7 @@ namespace Spg.CifBazar.Application.Services
 
             // Validation
             // * Ablaufdatum muss 14 Tage in der Zukunft liegen
-            if (productCommand.ExpiryDate < DateTime.Now.AddDays(14))
+            if (productCommand.ExpiryDate < _dateTimeService.Now.AddDays(14))
             {
                 throw new ProductCreateValidationException(
                     $"Das Ablaufdatum muss mind. 14 Tage in der Zukunft liegen!");
@@ -72,8 +80,19 @@ namespace Spg.CifBazar.Application.Services
                 DateOnly.FromDateTime(productCommand.ExpiryDate), 
                 existingCategory);
 
+            // Aufwendiger serverseitiger Prozess um die Produktnummer zu berechnen
+            product.ProductNumber = _productNumberService.CreateProductNumber();
+
             // Persist
-            _writableProductRepository.Create(product);
+            try
+            {
+                _writableProductRepository.Create(product);
+                return new ProductDto(product.Name, product.Description, product.ExpiryDate, product.ProductNumber);
+            }
+            catch (ProductRepositoryWriteException ex)
+            {
+                throw ProductServiceWriteException.FromCreate(ex);
+            }
         }
     }
 }

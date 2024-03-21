@@ -1,5 +1,7 @@
-﻿using Spg.CifBazar.DomainModel.Model;
+﻿using Microsoft.EntityFrameworkCore.Infrastructure;
+using Spg.CifBazar.DomainModel.Model;
 using Spg.CifBazar.DomainModel.Test.Helpers;
+using Spg.CifBazar.DomainModel.Validation;
 using Spg.CifBazar.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,11 @@ namespace Spg.CifBazar.DomainModel.Test
                 // Arrange
                 Product newProduct1 = DatabaseUtilities.GetSeedingProducts(DatabaseUtilities.GetSeedingCategories(DatabaseUtilities.GetSeedingShops())).First();
                 Product newProduct2 = DatabaseUtilities.GetSeedingProducts(DatabaseUtilities.GetSeedingCategories(DatabaseUtilities.GetSeedingShops())).ElementAt(1);
+
+                Product p = new Product("asddhomerqweqwesadasdasdasdadsasdasdasdasdasdasdasdasdasdasdasd", "asddadsdsa", DateOnly.FromDateTime(DateTime.Now.AddDays(30)), newProduct1.CategoryNavigation);
+
+                ModelValidator<Product> validator = new ModelValidator<Product>();
+                (bool isvalid, List<string> errors) = validator.Validate(p);
 
                 // Act
                 db.Products.Add(newProduct1);

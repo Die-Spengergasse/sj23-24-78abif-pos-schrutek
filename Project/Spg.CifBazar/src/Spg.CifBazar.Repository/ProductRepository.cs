@@ -31,7 +31,14 @@ namespace Spg.CifBazar.Repository
 
         // TODO: Delete-Methode
 
-        // TODO: GetSingle(id/key)
+        // TODO: GetSingle(id/key/name)
+        public Product GetSingle(string name)
+        {
+            return FilterBuilder
+                .ApplyNameContainsFilter(name)
+                .Build()
+                .First();
+        }
 
         // TODO: GetAll()
     }

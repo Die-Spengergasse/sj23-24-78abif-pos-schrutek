@@ -30,6 +30,9 @@ builder.Services.AddTransient<IReadOnlyProductRepository, ProductRepository>();
 builder.Services.AddTransient<IWritableProductRepository, ProductRepository>();
 builder.Services.AddTransient<IReadOnlyCategoryRepository, CategoryRepository>();
 
+builder.Services.AddTransient<IDateTimeService, DateTimeService>();
+builder.Services.AddTransient<IProductNumberService, ProductNumberService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

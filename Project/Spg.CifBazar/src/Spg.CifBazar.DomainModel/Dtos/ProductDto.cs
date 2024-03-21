@@ -1,4 +1,8 @@
 namespace Spg.CifBazar.DomainModel.Dtos 
 { 
-    public class ProductDto { } 
+    public record ProductDto(
+        string Name, 
+        string Description, 
+        DateOnly ExpiryDate,
+        Guid ProductNumber);
 } 

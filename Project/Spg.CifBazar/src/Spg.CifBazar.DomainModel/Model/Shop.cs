@@ -36,6 +36,9 @@ namespace Spg.CifBazar.DomainModel.Model
             EMail = eMail;
         }
 
+        public bool IsValid { get; private set; } = true;
+
+
         public int Id { get; private set; } // PK, auto increment, kommt von DB
         public string Name { get; set; } = string.Empty; // IsRequred
         public string? CompanySuffix { get; set; } // darf NULL sein
@@ -88,6 +91,16 @@ namespace Spg.CifBazar.DomainModel.Model
                     .Select(c => new Category(c.Name, this))
                         ?? new List<Category>());
 
+            return this;
+        }
+
+
+        public Shop Validate()
+        {
+            if (Name.Length > 5)
+            {
+                IsValid = false;
+            }
             return this;
         }
     }

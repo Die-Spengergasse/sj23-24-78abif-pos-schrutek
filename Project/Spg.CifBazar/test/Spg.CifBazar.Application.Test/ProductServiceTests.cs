@@ -1,4 +1,5 @@
 using Spg.CifBazar.Application.Services;
+using Spg.CifBazar.Application.Services.Mock;
 using Spg.CifBazar.Application.Test.Helpers;
 using Spg.CifBazar.DomainModel.Dtos;
 using Spg.CifBazar.DomainModel.Exceptions;
@@ -25,14 +26,17 @@ public class ProductServiceTests
                 5);
 
             // Act
-            new ProductService(
+            ProductDto actual = new ProductService(
                 new CategoryRepository(db),
                 new ProductRepository(db),
-                new ProductRepository(db))
+                new ProductRepository(db),
+                new DateTimeServiceMock(),
+                new ProductNumberServiceMock())
                 .Create(command);
 
             // Assert
             Assert.Equal(16, db.Products.Count());
+            Assert.Equal(new Guid("f575a460-8337-4e7b-a0ab-961b4621fdd8"), actual.ProductNumber);
         }
     }
 
@@ -55,7 +59,9 @@ public class ProductServiceTests
             Assert.Throws<ProductCreateValidationException>(() => new ProductService(
                 new CategoryRepository(db),
                 new ProductRepository(db),
-                new ProductRepository(db))
+                new ProductRepository(db),
+                new DateTimeServiceMock(),
+                new ProductNumberServiceMock())
                 .Create(command));
         }
     }
@@ -72,14 +78,16 @@ public class ProductServiceTests
             CreateProductCommand command = new CreateProductCommand(
                 "Testprodukt",
                 "Testbeschreibung",
-                new DateTime(2024, 03, 05),
+                new DateTime(2024, 02, 07),
                 5);
 
             // Act + Assert
             Assert.Throws<ProductCreateValidationException>(() => new ProductService(
                 new CategoryRepository(db),
                 new ProductRepository(db),
-                new ProductRepository(db))
+                new ProductRepository(db),
+                new DateTimeServiceMock(),
+                new ProductNumberServiceMock())
                 .Create(command));
         }
     }

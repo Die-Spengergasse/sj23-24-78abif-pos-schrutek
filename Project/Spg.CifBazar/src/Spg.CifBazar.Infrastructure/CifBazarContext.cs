@@ -69,6 +69,8 @@ namespace Spg.CifBazar.Infrastructure
             modelBuilder.Entity<Customer>().OwnsOne(s => s.PhoneNumber);
             modelBuilder.Entity<Customer>().OwnsOne(s => s.EMail);
 
+            modelBuilder.Entity<Shop>().Ignore(p => p.IsValid);
+
             //modelBuilder.Entity<Shop>()
             //    .Property(p => p.Name)
             //    .HasMaxLength(20)
